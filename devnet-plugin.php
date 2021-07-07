@@ -51,7 +51,7 @@ if (!class_exists('Devnet_Plugin')) {
          */
         private function setup()
         {
-            add_action('wp_enqueue_scripts', array($this, 'assets'));
+            add_action('wp_enqueue_scripts', [$this, 'assets']);
         }
 
         /**
@@ -60,13 +60,13 @@ if (!class_exists('Devnet_Plugin')) {
         public function assets()
         {
             wp_enqueue_style('style-css', plugin_dir_url(__FILE__) . 'assets/css/style.css');
-            wp_enqueue_script('script-js', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), '', '', true);
+            wp_enqueue_script('script-js', plugin_dir_url(__FILE__) . 'assets/js/script.js', ['jquery'], '', '', true);
 
-            wp_localize_script('script-js', 'ajax', array(
+            wp_localize_script('script-js', 'ajax', [
                 'ajaxurl' => admin_url('admin-ajax.php'),
-            ));
+            ]);
         }
     }
 
-    add_action('plugins_loaded', array('Devnet_Plugin', 'instance'));
+    add_action('plugins_loaded', ['Devnet_Plugin', 'instance']);
 }
