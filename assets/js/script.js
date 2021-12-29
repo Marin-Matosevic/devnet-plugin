@@ -1,7 +1,5 @@
-jQuery( document ).ready( function() {
+jQuery(document).ready(function () {
+	const $ = jQuery;
 
-    var $ = jQuery;
-
-    console.log('Rock on!');
-
+	console.log('Rock on!');
 });
